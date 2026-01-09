@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini Galary</title>
+    <style>
+        .wrap{
+            width: 100%; max-width: var(--max-width);
+        }
+        header{display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px;}
+        h1{font-size: 18px; margin: 0;}
+        p.lead{margin: 0; color: var(--muted);font-size: 13px;}
+        .controls{display: flex; flex-wrap: wrap; gap: 8px; align-items: center;}
+        .btn{background: transparent;border: 1px solid rgba(255,255,255,0.06);padding: 8px 10px; border-radius: 10px; color: inherit;
+        cursor: pointer; font-size: 13px;}
+        .btn.active{border-color: var(--accent);box-shadow: 0 4px 18px rgba(124,58,237,0.12);}
+        .filters{display: flex; align-items: center; gap: 8px;}
+        .filters-range{display: flex; gap: 8px;align-items: center; padding: 6px 8px;border-radius:10px;background:rgba(255,255,255,0.02)}
+        .filters-range label{font-size:12px;color:var(--muted)}
+        .filter-range input[type=range]{width:110px}
+        .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter);}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+    <header>
+        <div>
+        <h1>Mini Galary</h1>
+        <p class="lead">click on images to Description. use categories and filters to sliders for bonus</p>
+        </div>
+        <div class="controls">
+            <div class="container">
+                <button class="btn active" data-category="all">All</button>
+                <button class="btn" data-category="nature">Nature</button>
+                <button class="btn" data-category="cities">Cities</button>
+                <button class="btn" data-category="people">People</button>
+            </div>
+              <div class="filters" style="margin-left: 12px;">
+                <div class="filters-range" title="grayscale">
+                    <label for="grayscale">Gray</label>
+                    <input type="range" name="" id="grayscale" min="0" max="100" value="0">
+                </div>
+                <div class="fitlers-range" title="sepia">
+                    <label for="sepia">Sepia</label>
+                    <input type="range" name="" id="sepia" min="0" max="100" value="0">
+                </div>
+                <div class="filters-range" title="brightness">
+                    <label for="brightness">Bright</label>
+                    <input type="range" name="" id="brightness" min="70" max="130" value="100">
+                </div>
+        </div>
+        </div>
+        </header>
+      <main>
+        <section id="gallery" class="gallery" aria-live="polite">
+            <!-- cards with JS -->
+        </section>
+        <div id="noResults" class="no-results" style="display: none;">No images match that category.</div>
+      </main>
+    
+    </div>
+</body>
+</html>
